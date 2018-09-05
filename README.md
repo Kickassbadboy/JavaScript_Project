@@ -1,4 +1,6 @@
 # JavaScript_Project
+*** GUI to be done by everyone ***
+*** find about saving data on local browser and without using any database ***
 1. Create Login Form
 2. Create Dashboard Consisting 
 
