@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to INVOICE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script>
+  function loginFunction()
+  {
+    window.location="Dashboard.html"
+
+    }
+
+  </script>
+
+</head>
+<body>
+
+<centre>
+  <div class="container">
+
+  <div class="form-group">
+    <label for="usr" >Name:</label>
+    <input type="text" class="form-control" size="12px" id="usr" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" placeholder="Password">
+  </div>
+  <div class="d-flex justify-content-center">
+ <!--Create two buttons login and forget password -->
+ <button type="button" class="btn btn-outline-light text-dark" onclick="loginFunction">Login</button> &nbsp; &nbsp;
+
+ <button type="button" class="btn btn-outline-light text-dark">Forget Password</button>
+ <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+
+
+  </div>
+
+
+
+</div>
+
+</centre>
+
+</body>
+
+
+</html>
