@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+<!--write js here-->
+<script>
+function inputPrice()
+{
+/*document.getElementById("newdiv").innerHTML += "<input type="text" class="form-control" id="price_1" placeholder="Enter Price">";
+*/
+var newobj = document.createElement('div');
+newobj.innerHTML=document.getElementById('div1').innerHTML;
+
+}
+</script>
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+  <body>
+  <!-- Creating basic interface and creating entries for bill generation
+  such as creating input fields dynamiclly for accepting values.
+
+-->
+<div class="container">
+
+
+<div class="col-sm-3" id="div1">
+<input type="text" class="form-control" id="price_1" placeholder="Enter Price">
+
+
+</div>
+<div class="col-sm-3"id="newdiv">
+
+</div>
+
+<div>
+  <input type="button" name="button1" value="Add more" onclick="inputPrice();">
+</div>
+</div>
+</script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
