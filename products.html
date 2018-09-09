@@ -1,19 +1,57 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>
-      Products
-    </title>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-  </head>
-  <body>
-    <!--Write the Dashboad code here-->
+    /* Set gray background color and 100% height*/
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-  </body>
-</html>
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <center><img src="images/logo.jpg" width="100" height="100"></center><!--Show the image icon of invoice -->
+      <ul class="nav nav-pills nav-stacked">
+        <li ><a href="#section1">Dashboard</a></li>
+        <li><a href="#section2">Generate Bill</a></li>
+        <li class="active"><a href="#section2">Product</a></li>
+
+      </ul><br>
+    </div>
+    <br>
+
+    <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Hello</a></li>
+              <li><a href="#">Cashs</a></li>
+              <li><a href="#">Gender</a></li>
+              <li><a href="#">Geo</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</body>
+  </html>
+
