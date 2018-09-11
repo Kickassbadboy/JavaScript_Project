@@ -1,5 +1,5 @@
 <script src="db.js"></script>
-
+<script src="generateBill.html"></script> 
 <script>
 var value = {
     itemName: 'Blue Jeans',
