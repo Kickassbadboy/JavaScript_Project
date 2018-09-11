@@ -23,7 +23,7 @@ document.getElementById('newdiv').appendChild(newobj);
 </script>
 <script>
 function myCreateFunction() {
-    var srno=1;
+    var srno=document.getElementById("ip1").value;
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
@@ -32,8 +32,9 @@ function myCreateFunction() {
     var cell4=row.insertCell(3);
     cell1.innerHTML = srno;
     cell2.innerHTML = "NEW CELL2";
-    cell3.innerHTML = "NEW CELL2";
-    cell4.innerHTML = "NEW CELL2";
+    cell3.innerHTML = "NEW CELL3";
+    cell4.innerHTML = "NEW CELL4";
+
 }
 
 function myDeleteFunction() {
@@ -124,6 +125,8 @@ function myDeleteFunction() {
 
             <div>
               <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+              
+
             </div>
 
 
