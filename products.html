@@ -1,24 +1,82 @@
 
 <html>
 <head>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <title>Creating Product Bill</title>
+  <!--write js here-->
+  <script>
+    function inputPrice()
+{
+var newobj = document.createElement('div');
+newobj.innerHTML=document.getElementById('div1').innerHTML;
+document.getElementById('newdiv').appendChild(newobj);
+}
+</script>
+<script>
+function myCreateFunction() {
+    var srno=document.getElementById("ip1").value;
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3=row.insertCell(2);
+    var cell4=row.insertCell(3);
+    cell1.innerHTML = srno;
+    cell2.innerHTML = "NEW CELL2";
+    cell3.innerHTML = "NEW CELL2";
+    cell4.innerHTML = "NEW CELL2";
+}
+
+function myDeleteFunction() {
+    document.getElementById("myTable").deleteRow(0);
+}
+</script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
+  .row.content {height:900px;}
 
-    /* Set gray background color and 100% height*/
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
+  /* Set gray background color and 100% height*/
+  .sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+  }
 
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;}
-    }
-  </style>
+  /* On small screens, set height to 'auto' for the grid */
+  @media screen and (max-width: 767px) {
+    .row.content {height: auto;}
+  }
+</style>
 </head>
+
 <body>
+  <nav class="navbar navbar-inverse visible-xs">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Hello</a></li>
+            <li ><a href="Dashboard.html">Dashboard</a></li>
+            <li><a href="generateBill.html">Generate Bill</a></li>
+            <li class="active"><a href="product.html">Product</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav hidden-xs">
@@ -30,31 +88,47 @@
 
       </ul><br>
     </div>
-    <br>
-  </div>
-</div>
 
 
-    <nav class="navbar navbar-inverse visible-xs">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Logo</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Hello</a></li>
-              <li ><a href="Dashboard.html">Dashboard</a></li>
-              <li><a href="generateBill.html">Generate Bill</a></li>
-              <li class="active"><a href="product.html">Product</a></li>
-            </ul>
+
+
+      <div class="col-sm-9">
+        <div id="div1">
+        <table class="table table-bordered" id="myTable">
+          <thead>
+            <tr>
+              <th>SR NO.</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" class="form-control" placeholder="Enter Srno" id="ip1"></td>
+              <td><input type="text" class="form-control" placeholder="Enter Product Name"></td>
+              <td><input type="text" class="form-control" placeholder="Enter Price"></td>
+              <td><input type="text" class="form-control" placeholder="Enter Qty"></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+        <div id="newdiv">
+          <div>
+
           </div>
         </div>
-      </nav>
+
+        <div>
+          <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
 </body>
   </html>
-
