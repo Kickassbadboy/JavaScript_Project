@@ -1,0 +1,48 @@
+<div class="container">
+
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>SR NO.</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" class="form-control" placeholder="Enter Srno"></td>
+      <td><input type="text" class="form-control" placeholder="Enter Product Name"></td>
+      <td><input type="text" class="form-control" placeholder="Enter Price"></td>
+      <td><input type="text" class="form-control" placeholder="Enter Qty"></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+
+
+
+********************************************************************************************************************
+
+
+          <div class="col-sm-3">
+
+            <div id="div1">
+              <input type="text" class="form-control" id=increment(); placeholder="Enter Price">
+              <br>
+</div>
+
+              <div id="newdiv">
+                <div>
+
+                </div>
+              </div>
+
+              <div>
+                <input type="button" name="button1" value="Add more" onclick="inputPrice();">
+</div>
+              </div>
+              ********************************************************************************************************************

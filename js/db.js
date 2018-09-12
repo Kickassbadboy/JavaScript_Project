@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>
+
+<script>
+
+>>>>>>> 98ff4a243200594c990255c6ed92b408cda3c446
 var dbName ='Invoice';
 function getDbSchema() {
   var Products = {
@@ -45,3 +53,9 @@ function initJsStore() {
         console.error(err);
     })
 }
+<<<<<<< HEAD
+=======
+
+
+</script>
+>>>>>>> 98ff4a243200594c990255c6ed92b408cda3c446
