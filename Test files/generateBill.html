@@ -10,6 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>
 
   <title>Creating Bill</title>
   <!--write js here-->
@@ -23,7 +25,8 @@ document.getElementById('newdiv').appendChild(newobj);
 </script>
 <script>
 function myCreateFunction() {
-    var srno=1;
+
+    var srno=document.getElementById("ip1").value;
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
@@ -32,8 +35,12 @@ function myCreateFunction() {
     var cell4=row.insertCell(3);
     cell1.innerHTML = srno;
     cell2.innerHTML = "NEW CELL2";
-    cell3.innerHTML = "NEW CELL2";
-    cell4.innerHTML = "NEW CELL2";
+    cell3.innerHTML = "NEW CELL3";
+    cell4.innerHTML = "NEW CELL4";
+
+
+    return newfunc();
+
 }
 
 function myDeleteFunction() {
@@ -55,6 +62,7 @@ function myDeleteFunction() {
     .row.content {height: auto;}
   }
 </style>
+
 </head>
 
 <body>
@@ -123,6 +131,8 @@ function myDeleteFunction() {
 
             <div>
               <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+
+
             </div>
 
 
@@ -131,7 +141,55 @@ function myDeleteFunction() {
 
       </div>
     </div>
+    <script>
+    var dbName ='Invoice';
+    function getDbSchema() {
+      var Products = {
+        name: 'Product',
+        columns: [
+          {
+              name: 'pid',
+              primaryKey: true,
+              autoIncrement: false,
+          },
+          {
+              name: 'ItemName',
+              notNull: true,
+              dataType: JsStore.DATA_TYPE.String
+          },
+          {
+              name: 'Price',
+              notNull: true,
+              dataType: JsStore.DATA_TYPE.Number
+          },
+          {
+              name: 'Quantity',
+              notNull: true,
+              dataType: JsStore.DATA_TYPE.Number
+          }
+        ]
+      };
+      var db = {
+          name: dbName,
+          tables: [tblProduct]
+      }
+      return db;
+    }
 
+    var connection = new JsStore.Instance(new Worker('jsstore.worker.min.js'));
+    function initJsStore() {
+        connection.isDbExist(DbName).then(function(isExist) {
+            if (isExist) {
+                connection.openDb(DbName);
+            } else {
+                var database = getDbSchema();
+                connection.createDb(database);
+            }
+        }).catch(function(err) {
+            console.error(err);
+        })
+    }
+    </script>
 </body>
 
 </html>
