@@ -1,5 +1,4 @@
 <script src="db.js"></script>
-<script src="generateBill.html"></script> 
 <script>
 var srno = localStorage.getItem("srno");
 var value = {
