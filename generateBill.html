@@ -10,6 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="js/db.js"></script>
+  <script src="js/insertgenerateBill.js"></script>
 
   <title>Creating Bill</title>
   <!--write js here-->
@@ -23,6 +25,7 @@ document.getElementById('newdiv').appendChild(newobj);
 </script>
 <script>
 function myCreateFunction() {
+
     var srno=document.getElementById("ip1").value;
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
@@ -35,11 +38,24 @@ function myCreateFunction() {
     cell3.innerHTML = "NEW CELL3";
     cell4.innerHTML = "NEW CELL4";
 
+    return aler();
+    return newfunc();
+
 }
 
 function myDeleteFunction() {
     document.getElementById("myTable").deleteRow(0);
 }
+
+function newfunc() {
+  var srno=document.getElementById("ip1").value;
+  localStorage.setItem("srno",srno);
+}
+function aler() {
+  alert(localStorage.getItem("srno"));
+
+}
+
 </script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -125,7 +141,7 @@ function myDeleteFunction() {
 
             <div>
               <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
-              
+
 
             </div>
 

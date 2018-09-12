@@ -1,6 +1,9 @@
-<script src="db.js"></script>
-<script src="generateBill.html"></script> 
-<script>
+/*var jQueryScript = document.createElement('script');
+jQueryScript.setAttribute('src','https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js');
+document.head.appendChild(jQueryScript);
+var jQueryScript2 = document.createElement('script');
+jQueryScript2.setAttribute('src','https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js');
+document.head.appendChild(jQueryScript2);*/
 var srno = localStorage.getItem("srno");
 var value = {
     itemName: srno,
@@ -20,5 +23,3 @@ connection.insert({
     console.log(err);
     alert(err.message);
 });
-
-</script>
