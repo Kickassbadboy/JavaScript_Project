@@ -1,8 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>
-
-<script>
-
 var dbName ='Invoice';
 function getDbSchema() {
   var Products = {
@@ -50,6 +45,3 @@ function initJsStore() {
         console.error(err);
     })
 }
-
-
-</script>

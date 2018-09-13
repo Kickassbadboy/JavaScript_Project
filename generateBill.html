@@ -25,6 +25,7 @@ document.getElementById('newdiv').appendChild(newobj);
 </script>
 <script>
 function myCreateFunction() {
+
     var srno=document.getElementById("ip1").value;
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
@@ -37,11 +38,15 @@ function myCreateFunction() {
     cell3.innerHTML = "NEW CELL3";
     cell4.innerHTML = "NEW CELL4";
 
+
+    return newfunc();
+
 }
 
 function myDeleteFunction() {
     document.getElementById("myTable").deleteRow(0);
 }
+
 </script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -137,6 +142,7 @@ function myDeleteFunction() {
 
       </div>
     </div>
+
 <script type="text/javascript">
 var dbName ='Invoice';
 function getDbSchema() {
@@ -187,6 +193,7 @@ function initJsStore() {
 }
 
 </script>
+
 </body>
 
 </html>

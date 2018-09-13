@@ -1,5 +1,3 @@
-<script src="db.js"></script>
-<script>
 var srno = localStorage.getItem("srno");
 var value = {
     itemName: srno,
@@ -19,5 +17,3 @@ connection.insert({
     console.log(err);
     alert(err.message);
 });
-
-</script>
