@@ -10,6 +10,7 @@
 
   <title>Creating Product Bill</title>
   <script>
+  <center>
   function myCreateFunction() {
       var srno=document.getElementById("ip1").value;
       var table = document.getElementById("myTable");
@@ -22,6 +23,7 @@
       cell2.innerHTML = "NEW CELL2";
       cell3.innerHTML = "NEW CELL2";
       cell4.innerHTML = "NEW CELL2";
+      </center>
   }
 
   function myDeleteFunction() {
@@ -113,15 +115,17 @@
         </div>
 
         <div>
-          <input type="button" name="button1" value="Add more" onclick="myCreateFunction();" >
+          <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+
+
         </div>
 
 
       </div>
 
 
-      </div>
-      </div>
+  </div>
+</div>
     </center>
 </body>
   </html>
