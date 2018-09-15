@@ -27,6 +27,7 @@ document.getElementById('newdiv').appendChild(newobj);
 function myCreateFunction() {
 
     var srno=document.getElementById("ip1").value;
+    var productName=document.getElementById('pname').value;
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
@@ -116,7 +117,7 @@ function myDeleteFunction() {
               <tbody>
                 <tr>
                   <td><input type="text" class="form-control" placeholder="Enter Srno" id="ip1"></td>
-                  <td><input type="text" class="form-control" placeholder="Enter Product Name"></td>
+                  <td><input type="text" class="form-control" placeholder="Enter Product Name" id='pname'></td>
                   <td><input type="text" class="form-control" placeholder="Enter Price"></td>
                   <td><input type="text" class="form-control" placeholder="Enter Qty"></td>
                 </tr>
