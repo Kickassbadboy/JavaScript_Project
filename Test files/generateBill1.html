@@ -17,11 +17,6 @@
   <!--write js here-->
   <script>
 
-  window.load = function()
-  {
-    alert("Helll Guys");
-  }
-
     function inputPrice()
     {
     var newobj = document.createElement('div');
@@ -32,40 +27,24 @@
 
 
 
-function checkTextField()
-{
-var srno=document.getElementById("srno").value;
-if(srno=="")
-{
-  alert("Please enter values");
-
-}
-else {
-  var row = table.insertRow(1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3=row.insertCell(2);
-    var cell4=row.insertCell(3);
-    var cell5=row.insertCell(4)
-    cell1.innerHTML = srno;
-}
-
-
-
-
-}
 
 function myCreateFunction(){
+  var srno=document.getElementById("srno").value;
+  var productName=document.getElementById('pname').value;
+  var price=document.getElementById('price').value;
+  var Quantity=document.getElementById('qty').value;
+  if(srno=="" && productName=="" && price=="" && Quantity=="")
+  {
+    alert("Please enter values");
+
+  }
+    else {
 
 
-    var srno=document.getElementById("srno").value;
-    var productName=document.getElementById('pname').value;
-    var price=document.getElementById('price').value;
-    var Quantity=document.getElementById('qty').value;
     //var total=document.getElementById('total').value;
   //  var grandtotal= total*complete column
     var table = document.getElementById("myTable");
-  /*  var row = table.insertRow(1);
+   var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3=row.insertCell(2);
@@ -74,12 +53,9 @@ function myCreateFunction(){
     cell1.innerHTML = srno;
     cell2.innerHTML = productName;
     cell3.innerHTML = price;
-    cell4.innerHTML = Quantity;*/
-checkTextField();
+    cell4.innerHTML = Quantity;
 
-
-
-}
+}}
 
 
 
