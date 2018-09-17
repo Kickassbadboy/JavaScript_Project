@@ -16,21 +16,48 @@
   <title>Creating Bill</title>
   <!--write js here-->
   <script>
+
+  window.load = function()
+  {
+    alert("Helll Guys");
+  }
+
     function inputPrice()
+    {
+    var newobj = document.createElement('div');
+    newobj.innerHTML=document.getElementById('div1').innerHTML;
+    document.getElementById('newdiv').appendChild(newobj);
+    }
+
+
+
+
+function checkTextField()
 {
-var newobj = document.createElement('div');
-newobj.innerHTML=document.getElementById('div1').innerHTML;
-document.getElementById('newdiv').appendChild(newobj);
+var srno=document.getElementById("srno").value;
+if(srno=="")
+{
+  alert("Please enter values");
+
 }
-</script>
-<script>
-/*function validate()
-{
-  var
-}*/
+else {
+  var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3=row.insertCell(2);
+    var cell4=row.insertCell(3);
+    var cell5=row.insertCell(4)
+    cell1.innerHTML = srno;
+}
 
 
-function myCreateFunction() {
+
+
+}
+
+function myCreateFunction(){
+
+
     var srno=document.getElementById("srno").value;
     var productName=document.getElementById('pname').value;
     var price=document.getElementById('price').value;
@@ -38,7 +65,7 @@ function myCreateFunction() {
     //var total=document.getElementById('total').value;
   //  var grandtotal= total*complete column
     var table = document.getElementById("myTable");
-    var row = table.insertRow(1);
+  /*  var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3=row.insertCell(2);
@@ -47,16 +74,15 @@ function myCreateFunction() {
     cell1.innerHTML = srno;
     cell2.innerHTML = productName;
     cell3.innerHTML = price;
-    cell4.innerHTML = Quantity;
+    cell4.innerHTML = Quantity;*/
+checkTextField();
 
 
-    return newfunc();
 
 }
 
-function myDeleteFunction() {
-    document.getElementById("myTable").deleteRow(0);
-}
+
+
 
 </script>
   <style>
@@ -115,29 +141,29 @@ function myDeleteFunction() {
 
           <div class="col-sm-9">
             <div id="div1">
-            <table class="table table-bordered" id="myTable">
-              <thead>
-                <tr>
-                  <th>SR NO.</th>
-                  <th>Product Name</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="text" class="form-control" placeholder="Enter Srno" id="srno"></td>
-                  <td><input type="text" class="form-control" placeholder="Enter Product Name" id='pname'></td>
-                  <td><input type="text" class="form-control" placeholder="Enter Price" id="price"></td>
-                  <td><input type="text" class="form-control" placeholder="Enter Qty" id="qty"></td>
-                  <!--<td><input type="text" class="form-control" placeholder="Total Price" id="total"></td>
+              <table class="table table-bordered" id="myTable">
+                <thead>
+                  <tr>
+                    <th>SR NO.</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" onblur="checkTextField();"class="form-control" placeholder="Enter Srno" id="srno"></td>
+                    <td><input type="text" class="form-control" placeholder="Enter Product Name" id='pname'></td>
+                    <td><input type="text" class="form-control" placeholder="Enter Price" id="price"></td>
+                    <td><input type="text" class="form-control" placeholder="Enter Qty" id="qty"></td>
+                      <!--<td><input type="text" class="form-control" placeholder="Total Price" id="total"></td>
               -->
-                </tr>
+                  </tr>
 
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
             <div id="newdiv">
               <div>
 
@@ -151,62 +177,62 @@ function myDeleteFunction() {
             </div>
 
 
+            </div>
+
+
           </div>
-
-
       </div>
-    </div>
 
-<script type="text/javascript">
-var dbName ='Invoice';
-function getDbSchema() {
-  var Products = {
-    name: 'Product',
-    columns: [
-      {
-          name: 'srno',
-          primaryKey: true,
-          autoIncrement: false,
-      },
-      {
-          name: 'ItemName',
-          notNull: true,
-          dataType: JsStore.DATA_TYPE.String
-      },
-      {
-          name: 'Price',
-          notNull: true,
-          dataType: JsStore.DATA_TYPE.Number
-      },
-      {
-          name: 'Quantity',
-          notNull: true,
-          dataType: JsStore.DATA_TYPE.Number
-      }
-    ]
-  };
-  var db = {
-      name: dbName,
-      tables: [tblProduct]
-  }
-  return db;
-}
+      <script type="text/javascript">
+        var dbName = 'Invoice';
 
-var connection = new JsStore.Instance(new Worker('jsstore.worker.js'));
-function initJsStore() {
-    connection.isDbExist(DbName).then(function(isExist) {
-        if (isExist) {
-            connection.openDb(DbName);
-        } else {
-            var database = getDbSchema();
-            connection.createDb(database);
+        function getDbSchema() {
+          var Products = {
+            name: 'Product',
+            columns: [{
+                name: 'srno',
+                primaryKey: true,
+                autoIncrement: false,
+              },
+              {
+                name: 'ItemName',
+                notNull: true,
+                dataType: JsStore.DATA_TYPE.String
+              },
+              {
+                name: 'Price',
+                notNull: true,
+                dataType: JsStore.DATA_TYPE.Number
+              },
+              {
+                name: 'Quantity',
+                notNull: true,
+                dataType: JsStore.DATA_TYPE.Number
+              }
+            ]
+          };
+          var db = {
+            name: dbName,
+            tables: [tblProduct]
+          }
+          return db;
         }
-    }).catch(function(err) {
-        console.error(err);
-    })
-}
 
-</script>
+        var connection = new JsStore.Instance();
+
+        function initJsStore() {
+          connection.isDbExist(DbName).then(function(isExist) {
+            if (isExist) {
+              connection.openDb(DbName);
+            } else {
+              var database = getDbSchema();
+              connection.createDb(database);
+            }
+          }).catch(function(err) {
+            console.error(err);
+          })
+        }
+      </script>
 
 </body>
 
