@@ -12,7 +12,7 @@
     <script src="scripts/jsstore.min.js "></script>
     <script src="scripts/jsstore.worker.min.js "></script>
     <script>
-        var connection = new JsStore.Instance(),
+        var connection = new JsStore.Instance(), // Inbuilt function from JsStore
             StudentId;
         window.onload = function () {
             initiateDb();
@@ -63,7 +63,7 @@
         function Submit() {
             //if student exist means we have to update data
             if (StudentId) {
-                updateStudent()
+                updateStudent();
             } else {
                 addStudent();
             }
