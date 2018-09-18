@@ -49,7 +49,7 @@
        }
 
 
-       function addStudent() {
+       function addProduct() {
         var products=getProducts();
          // var UserName = document.getElementById("user").Value;
          // var Password= document.getElementById("pass").Value;
@@ -60,7 +60,7 @@
 
            connection.insert({
                into: 'Product',   //table name
-               values: Value      //
+               values: Value      //coloum
            }).then(function (rowsAdded) {
              if(rowsAdded > 0){
                  alert("Successfully Added");
@@ -115,10 +115,9 @@
 
             },
             {
-                Name: 'george',
-                Gender: 'male',
-                Country: 'America',
-                City: 'xyx'
+            Name: 'Alfreds',
+            Password: 'male',
+
             },
           ]
             return value;
