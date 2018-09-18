@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>
+    <script src="scripts/jsstore.worker.min.js "></script>
+    <script src="scripts/jsstore.min.js "></script>
 
   </head>
   <body>
     <br><br><br>
     <center>
-    <input type="text" name="user" placeholder="UserName" id="user"><br>
-    <input type="text" name="pass" placeholder="Password" id="pass"><br><br>
+    <input type="text" name="user" placeholder="UserName" id="user"><br><br>
+    <input type="text" name="pass" placeholder="Password" id="pass"><br><br><br>
     <input type="button" name="Submit" value="Submit" onclick="addProduct();">
   </center>
 
@@ -29,8 +29,7 @@
 
     function initiateDatabase(){
 
-    var DbName="ProductDatabase"
-    function initJsStore() {
+    var DbName="ProductDatabase";
      connection.isDbExist(DbName).then(function(isExist) {
           if (isExist) { // checks if the database exists, if it does then opens it, else creates a whole new dataBase
               connection.openDb(DbName).then(function (){
@@ -47,22 +46,22 @@
           console.error(err);
           alert(err.message);
       });
-    }
+
        }
 
 
        function addProduct() {
         var products=getProducts();
-          var UserName = document.getElementById("user").Value;
-          var Password= document.getElementById("pass").Value;
-           var Value = {
-                Name: UserName,
-                Password: Password
+           var UserName = document.getElementById("user").Value;
+         var Password= document.getElementById("pass").Value;
+         var Value = {
+             Name: UserName,
+               Password: Password
           };
 
            connection.insert({
                into: 'Product',   //table name
-               values: Value      //coloum
+               values: products,Value      //coloum
            }).then(function (rowsAdded) {
              if(rowsAdded > 0){
                  alert("Successfully Added");
