@@ -8,10 +8,12 @@
 
   </head>
   <body>
-    <input type="text" name="user" placeholder="user" id="user">
-    <input type="text" name="pass" placeholder="password" id="pass">
+    <br><br><br>
+    <center>
+    <input type="text" name="user" placeholder="UserName" id="user"><br>
+    <input type="text" name="pass" placeholder="Password" id="pass"><br><br>
     <input type="button" name="Submit" value="Submit" onclick="addProduct();">
-
+  </center>
 
 
 
@@ -51,12 +53,12 @@
 
        function addProduct() {
         var products=getProducts();
-         // var UserName = document.getElementById("user").Value;
-         // var Password= document.getElementById("pass").Value;
-         //   var Value = {
-         //       Name: UserName,
-         //       Password: Password
-         // };
+          var UserName = document.getElementById("user").Value;
+          var Password= document.getElementById("pass").Value;
+           var Value = {
+                Name: UserName,
+                Password: Password
+          };
 
            connection.insert({
                into: 'Product',   //table name
@@ -109,7 +111,7 @@
 
     function getProducts() {
         //Student Array
-        var value = [{
+        var Value = [{
                 Name: 'Alfreds',
                 Password: 'male',
 
@@ -120,7 +122,7 @@
 
             },
           ]
-            return value;
+            return Value;
 }
 
     </script>
