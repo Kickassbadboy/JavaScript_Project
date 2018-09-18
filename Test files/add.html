@@ -18,56 +18,87 @@
 
     <script type="text/javascript">
 
+    var connection = new JsStore.Instance();
+    window.onload = function () {
 
-var connection = new JsStore.Instance();
-window.onload = function () {
+    initiateDatabase();
 
-  initiateDatabase();
-  getDb();
+    }
 
+    function initiateDatabase(){
 
-}
-
-function initiateDatabase(){
-
-var DbName="ProductDatabase";
-      connection.isDbExist(DbName).then(function(isExist) {
+    var DbName="ProductDatabase"
+    function initJsStore() {
+     connection.isDbExist(DbName).then(function(isExist) {
           if (isExist) { // checks if the database exists, if it does then opens it, else creates a whole new dataBase
-              connection.openDb(DbName);
+              connection.openDb(DbName).then(function (){
+                console.log('db Opened');
+              });
           } else {
-              var databse=getDb();
+              var database = getDb();
               connection.createDb(database).then(function (tables){
                 console.log(tables);
-          });
+              });
+              addProduct();
+          }
       }).catch(function(err) {
-          console.log(err);
+          console.error(err);
           alert(err.message);
       });
+    }
+       }
 
-}}
-function getDb(){
 
-      var productTable = {
-        name: 'Product',
-        columns: [
-          {
+       function addStudent() {
+        var products=getProducts();
+         // var UserName = document.getElementById("user").Value;
+         // var Password= document.getElementById("pass").Value;
+         //   var Value = {
+         //       Name: UserName,
+         //       Password: Password
+         // };
+
+           connection.insert({
+               into: 'Product',   //table name
+               values: Value      //
+           }).then(function (rowsAdded) {
+             if(rowsAdded > 0){
+                 alert("Successfully Added");
+             }
+
+           }).catch(function (err) {
+               console.log(err);
+               alert(err.message);
+           });
+
+       }
+
+
+
+
+       function getDb(){
+
+        var productTable = {
+         name: 'Product',
+          columns: [
+           {
               name: 'Id',
               primaryKey: true,
               autoIncrement: true
-          },
-          {
+            },
+            {
               name: 'Name',
               notNull: true,
-              dataType: JsStore.DATA_TYPE.String
-          },
-          {
+              dataType: "string"
+            },
+           {
               name: 'Password',
               notNull: true,
-              dataType: JsStore.DATA_TYPE.String
-          },
+              dataType: "string"
+           }
 
-        ]
-      };
+           ]
+           }
       var db = {
           name: "ProductDatabase",
           tables: [productTable]
@@ -76,31 +107,23 @@ function getDb(){
     }
 
 
+    function getProducts() {
+        //Student Array
+        var value = [{
+                Name: 'Alfreds',
+                Password: 'male',
 
+            },
+            {
+                Name: 'george',
+                Gender: 'male',
+                Country: 'America',
+                City: 'xyx'
+            },
+          ]
+            return value;
+}
 
-
-
-    function addProduct() {
-      var UserName = document.getElementById("user").Value;
-      var Password= document.getElementById("pass").Value;
-        var Value = {
-            Name: UserName,
-            Password: Password
-        };
-
-        connection.insert({
-            into: 'Product',
-            values: [Value]
-        }).then(function (rowsAdded) {
-          if(rowsAdded > 0){
-              alert("Successfully Added");
-          }
-        }).catch(function (err) {
-            console.log(err);
-            alert(err.message);
-        })
-
-    }
     </script>
   </body>
-</html>
+  </html>
