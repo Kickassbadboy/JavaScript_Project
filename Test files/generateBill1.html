@@ -27,12 +27,14 @@
 
 
 
-
 function myCreateFunction(){
   var srno=document.getElementById("srno").value;
   var productName=document.getElementById('pname').value;
   var price=document.getElementById('price').value;
   var Quantity=document.getElementById('qty').value;
+  var total=price*Quantity;
+
+
   if(srno=="" && productName=="" && price=="" && Quantity=="")
   {
     alert("Please enter values");
@@ -54,12 +56,27 @@ function myCreateFunction(){
     cell2.innerHTML = productName;
     cell3.innerHTML = price;
     cell4.innerHTML = Quantity;
+    cell5.innerHTML=total;
 
 }}
 
 
 
 
+</script>
+
+<script type="text/javascript">
+
+function sum()
+{
+  var grandtotal=cell5[];
+for(var i=0;i<=grandtotal;i++)
+{
+  var tot=0;
+  tot=tot+grantotal[i];
+  alert(tot);
+}
+}
 </script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -135,6 +152,8 @@ function myCreateFunction(){
                     <td><input type="text" class="form-control" placeholder="Enter Qty" id="qty"></td>
                       <!--<td><input type="text" class="form-control" placeholder="Total Price" id="total"></td>
               -->
+
+
                   </tr>
 
                 </tbody>
@@ -209,7 +228,7 @@ function myCreateFunction(){
           })
         }
       </script>
-
+<form><input type="button" name="cal" onclick="sum();"></form>
 </body>
 
 </html>
