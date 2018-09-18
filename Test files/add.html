@@ -6,17 +6,6 @@
     <script src="scripts/jsstore.worker.min.js "></script>
     <script src="scripts/jsstore.min.js "></script>
 
-  </head>
-  <body>
-    <br><br><br>
-    <center>
-    <input type="text" name="user" placeholder="UserName" id="user"><br><br>
-    <input type="text" name="pass" placeholder="Password" id="pass"><br><br><br>
-    <input type="button" name="Submit" value="Submit" onclick="addProduct();">
-  </center>
-
-
-
 
     <script type="text/javascript">
 
@@ -51,17 +40,18 @@
 
 
        function addProduct() {
+         var UserName = document.getElementById("user").value;
+        var Password= document.getElementById("pass").value;
+
         var products=getProducts();
-           var UserName = document.getElementById("user").Value;
-         var Password= document.getElementById("pass").Value;
-         var Value = {
+            var Value = {
              Name: UserName,
                Password: Password
           };
 
            connection.insert({
                into: 'Product',   //table name
-               values: products,Value      //coloum
+               values: [Value]      //coloum
            }).then(function (rowsAdded) {
              if(rowsAdded > 0){
                  alert("Successfully Added");
@@ -74,19 +64,15 @@
 
        }
 
+  function inputfunction(){
 
-
+  }
 
        function getDb(){
 
         var productTable = {
          name: 'Product',
           columns: [
-           {
-              name: 'Id',
-              primaryKey: true,
-              autoIncrement: true
-            },
             {
               name: 'Name',
               notNull: true,
@@ -122,8 +108,22 @@
             },
           ]
             return Value;
-}
+  }
 
     </script>
+
+  </head>
+  <body>
+    <br><br><br>
+    <center>
+    <input type="text" name="user" placeholder="UserName" id="user"><br><br>
+    <input type="text" name="pass" placeholder="Password" id="pass"><br><br><br>
+    <input type="button" name="Submit" value="Submit" onclick="addProduct();">
+  </center>
+
+
+
+
+
   </body>
   </html>

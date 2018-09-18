@@ -70,8 +70,9 @@
         }
 
         function updateStudent() {
+
             var Value = {
-                Name: $('#txtName').val(),
+                Name: name,
                 Gender: $("input[name='Gender']:checked").val(),
                 Country: $('#txtCountry').val(),
                 City: $('#txtCity').val()
@@ -93,8 +94,10 @@
         }
 
         function addStudent() {
+          var name=document.getElementById('txtName').value;
+
             var Value = {
-                Name: $('#txtName').val(),
+                Name: name,
                 Gender: $("input[name='Gender']:checked").val(),
                 Country: $('#txtCountry').val(),
                 City: $('#txtCity').val()
