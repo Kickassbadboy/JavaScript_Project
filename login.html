@@ -1,53 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Welcome to INVOICE</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<html>
+  <head>
+    <script type="text/javascript">
+    function validateForm() {
+     var un = document.getElementById('username').value;
+     var pw = document.getElementById('password').value;
+     var username = "username";
+     var password = "password";
+     if ((un == username) && (pw == password)) {
+        window.location="Dashboard.html";
+
+     }
+     else {
+         alert ("Login was unsuccessful, please check your username and password");
+     }
+      return false;
+   }
+    </script>
+
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script>
-  function loginFunction()
-  {
-    window.location="Dashboard.html"
 
-    }
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  </script>
+<!-- Include the above in your HEAD tag ---------->
+  </head>
+<body id="LoginForm">
+<div class="container">
+<!-- <h1 class="form-heading">login Form</h1> -->
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+   <h2>Admin Login</h2>
+   <p>Please enter your login id and password</p>
+   </div>
+    <form id="Login">
 
-</head>
-<body>
-
-<centre>
-  <div class="container">
-
-  <div class="form-group">
-    <label for="usr" >Name:</label>
-    <input type="text" class="form-control" size="12px" id="usr" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Password">
-  </div>
-  <div class="d-flex justify-content-center">
- <!--Create two buttons login and forget password -->
- <button type="button" class="btn btn-outline-light text-dark" onclick="loginFunction">Login</button> &nbsp; &nbsp;
-
- <button type="button" class="btn btn-outline-light text-dark">Forget Password</button>
- <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+        <div class="form-group">
 
 
-  </div>
+            <input type="text" class="form-control" id="username" placeholder="Login id">
 
+        </div>
 
+        <div class="form-group">
+
+            <input type="password" class="form-control" id="password" placeholder="Password">
+
+        </div>
+
+<div class="col-sm-2">
+
+            <button type="submit" class="btn btn-primary" onclick="validateForm();">Login</button>
 
 </div>
+    </form>
+    </div>
 
-</centre>
+</div></div></div>
+
 
 </body>
-
-
 </html>
+
+<style media="screen">
+body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+background: #f7f7f7 none repeat scroll 0 0;
+border: 1px solid #d4d4d4;
+border-radius: 4px;
+font-size: 14px;
+height: 50px;
+line-height: 50px;
+}
+.main-div {
+background: #ffffff none repeat scroll 0 0;
+border-radius: 2px;
+margin: 10px auto 30px;
+max-width: 38%;
+padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+color: #777777;
+font-size: 14px;
+text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+background: #008000 none repeat scroll 0 0;
+border-color: #f0ad4e;
+color: #ffffff;
+font-size: 14px;
+width: 30%;
+height: 50px;
+line-height: 50px;
+padding: 0;
+}
+.forgot {
+text-align: left; margin-bottom:30px;
+}
+.botto-text {
+color: #ffffff;
+font-size: 14px;
+margin: auto;
+}
+/* .login-form .btn.btn-primary.reset {
+background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;} */
+
+</style>
