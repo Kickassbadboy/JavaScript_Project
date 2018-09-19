@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="scripts/jsstore.worker.min.js "></script>
+    <script src="scripts/jsstore.min.js "></script>
+
+
+    <script type="text/javascript">
+
+    var connection = new JsStore.Instance();
+    window.onload = function () {
+
+    initiateDatabase();
+
+    }
+
+    function initiateDatabase(){
+
+    var DbName="ProductDatabase";
+     connection.isDbExist(DbName).then(function(isExist) {
+          if (isExist) { // checks if the database exists, if it does then opens it, else creates a whole new dataBase
+              connection.openDb(DbName).then(function (){
+                console.log('db Opened');
+              });
+          } else {
+              var database = getDb();
+              connection.createDb(database).then(function (tables){
+                console.log(tables);
+              });
+              addProduct();
+          }
+      }).catch(function(err) {
+          console.error(err);
+          alert(err.message);
+      });
+
+       }
+
+
+       function addProduct() {
+         var UserName = document.getElementById("user").value;
+        var Password= document.getElementById("pass").value;
+
+        var products=getProducts();
+            var Value = {
+             Name: UserName,
+               Password: Password
+          };
+
+           connection.insert({
+               into: 'Product',   //table name
+               values: [Value]      //coloum
+           }).then(function (rowsAdded) {
+             if(rowsAdded > 0){
+                 alert("Successfully Added");
+             }
+
+           }).catch(function (err) {
+               console.log(err);
+               alert(err.message);
+           });
+
+       }
+
+  function inputfunction(){
+
+  }
+
+       function getDb(){
+
+        var productTable = {
+         name: 'Product',
+          columns: [
+            {
+              name: 'Name',
+              notNull: true,
+              dataType: "string"
+            },
+           {
+              name: 'Password',
+              notNull: true,
+              dataType: "string"
+           }
+
+           ]
+           }
+      var db = {
+          name: "ProductDatabase",
+          tables: [productTable]
+      }
+      return db;
+    }
+
+
+    function getProducts() {
+        //Student Array
+        var Value = [{
+                Name: 'Alfreds',
+                Password: 'male',
+
+            },
+            {
+            Name: 'Alfreds',
+            Password: 'male',
+
+            },
+          ]
+            return Value;
+  }
+
+    </script>
+
+  </head>
+  <body>
+    <br><br><br>
+    <center>
+    <input type="text" name="user" placeholder="UserName" id="user"><br><br>
+    <input type="text" name="pass" placeholder="Password" id="pass"><br><br><br>
+    <input type="button" name="Submit" value="Submit" onclick="addProduct();">
+  </center>
+
+
+
+
+
+  </body>
+  </html>
