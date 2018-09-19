@@ -9,7 +9,7 @@
 
     <script type="text/javascript">
 
-    var connection = new JsStore.Instance();
+    var connection = new JsStore.Instance(),ProductId;
     window.onload = function () {
 
     initiateDatabase();
@@ -63,6 +63,30 @@
            });
 
        }
+       function updateProduct(){
+         var ProductId=document.getElementById('ProductId').value;
+         var nameupdate=document.getElementById('user').value;
+         var Passupdate=document.getElementById('pass').value;
+         var Value = {
+           Name: nameupdate,
+             Password: Passupdate
+
+         };
+         connection.update({ in: 'Product',
+             set: Value,
+             where: {
+                 Id: Number(ProductId)
+             }
+         }).then(function (rowsAffected) {
+             alert(rowsAffected + " record Updated");
+             if (rowsAffected > 0) {
+                 console.log("rows affected");
+             }
+         }).catch(function (err) {
+             console.log(err);
+             alert(err.message);
+         })
+       }
 
   function inputfunction(){
 
@@ -73,6 +97,11 @@
         var productTable = {
          name: 'Product',
           columns: [
+            {
+              name:'Id',
+              primaryKey:true,
+              autoIncrement:true
+            },
             {
               name: 'Name',
               notNull: true,
@@ -118,7 +147,9 @@
     <center>
     <input type="text" name="user" placeholder="UserName" id="user"><br><br>
     <input type="text" name="pass" placeholder="Password" id="pass"><br><br><br>
-    <input type="button" name="Submit" value="Submit" onclick="addProduct();">
+    <input type="button" name="Submit" value="Submit" onclick="addProduct();"><br><br><br>
+    <input type="text"  id="ProductId">
+    <input type="button" name="update" value="update" onclick="updateProduct();">
   </center>
 
 
