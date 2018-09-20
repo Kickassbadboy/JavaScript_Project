@@ -52,7 +52,15 @@ function myCreateFunction(){
     cell3.innerHTML = price;
     cell4.innerHTML = Quantity;
     cell5.innerHTML=total;
+<<<<<<< HEAD
     cell5.setAttribute("id","cellTotal");
+=======
+    //cell5.setAttribute("id","cellTotal");
+
+
+
+
+>>>>>>> 7837211efc134a03b4afa18a5e4a14a7c7381e1e
 //     sum=0;
 //     for (var i = 0; i < cell5.length; i++)
 //           sum=sum+parseFloat(cell5[i].firstChild.value);
@@ -60,12 +68,25 @@ function myCreateFunction(){
 
 }
 
+<<<<<<< HEAD
 
 
 }
+=======
+>>>>>>> 7837211efc134a03b4afa18a5e4a14a7c7381e1e
 
+}
+function calcualate(){
+var table = document.getElementById("MyTable"), sumVal = 0;
 
+           for(var i = 1; i < table.rows.length; i++)
+           {
+               sumVal = sumVal + parseInt(table.rows[i].cells[4].innerHTML);
+           }
 
+           document.getElementById("sum").innerHTML = "Sum Value = " + sumVal;
+           console.log(sumVal);
+           }
 
 </script>
 
@@ -172,7 +193,7 @@ for(var i=0;i<=grandtotal;i++)
 
             <div>
               <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
-        <input type="button" value="calculate" onclick="">
+        <input type="button" value="calculate" onclick="calcualate();">
 
             </div>
 
