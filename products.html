@@ -36,7 +36,7 @@ document.getElementById('newdiv').appendChild(newobj);
 function myCreateFunction() {
 
   // Deleted srno obj, variable and cell
-  var edit=document.createElement(<a href="#"><span class="glyphicon glyphicon-trash"></a></span></center>);
+  //var edit=document.createElement(<a href="#"><span class="glyphicon glyphicon-trash"></a></span></center>);
    var table = document.getElementById("myTable");
    var row = table.insertRow(1);
    var cell2 = row.insertCell(0);
@@ -47,7 +47,18 @@ function myCreateFunction() {
    cell2.innerHTML = "NEW CELL2";
    cell3.innerHTML = "NEW CELL2";
    cell4.innerHTML = "NEW CELL2";
-   cell5.appendChild(edit);
+
+
+
+   cell5.setAttribute("a href","edit.html");
+   cell5.setAttribute("class","glyphicon glyphicon-pencil");
+
+   cell6.setAttribute("a href","delete.html");
+   cell6.setAttribute("class","glyphicon glyphicon-trash");
+
+
+
+   //cell5.setAttribute("span","ce")
   // cell6.innerHTML=edit;
 // <div>
 //    <table>
