@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>
+
+  <title>Creating Bill</title>
+  <!--write js here-->
+  <script>
+
+    function inputPrice()
+    {
+    var newobj = document.createElement('div');
+    newobj.innerHTML=document.getElementById('div1').innerHTML;
+    document.getElementById('newdiv').appendChild(newobj);
+    }
+
+
+function myCreateFunction(){
+  var srno=document.getElementById("srno").value;
+  var productName=document.getElementById('pname').value;
+  var price=document.getElementById('price').value;
+  var Quantity=document.getElementById('qty').value;
+  var total=price*Quantity;
+
+
+  if(srno=="" && productName=="" && price=="" && Quantity=="")
+  {
+    alert("Please enter values");
+
+  }
+    else {
+
+    var table = document.getElementById("myTable");
+   var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3=row.insertCell(2);
+    var cell4=row.insertCell(3);
+    var cell5=row.insertCell(4);
+    cell1.innerHTML = srno;
+    cell2.innerHTML = productName;
+    cell3.innerHTML = price;
+    cell4.innerHTML = Quantity;
+    cell5.innerHTML=total;
+<<<<<<< HEAD
+    cell5.setAttribute("id","cellTotal");
+=======
+    //cell5.setAttribute("id","cellTotal");
+
+
+
+
+>>>>>>> 7837211efc134a03b4afa18a5e4a14a7c7381e1e
+//     sum=0;
+//     for (var i = 0; i < cell5.length; i++)
+//           sum=sum+parseFloat(cell5[i].firstChild.value);
+// alert("sum"+sum);
+
+}
+
+<<<<<<< HEAD
+
+
+}
+=======
+>>>>>>> 7837211efc134a03b4afa18a5e4a14a7c7381e1e
+
+}
+function calcualate(){
+var table = document.getElementById("MyTable"), sumVal = 0;
+
+           for(var i = 1; i < table.rows.length; i++)
+           {
+               sumVal = sumVal + parseInt(table.rows[i].cells[4].innerHTML);
+           }
+
+           document.getElementById("sum").innerHTML = "Sum Value = " + sumVal;
+           console.log(sumVal);
+           }
+
+</script>
+
+<!-- <script type="text/javascript">
+
+function sum()
+{
+  var grandtotal=cell5[];
+for(var i=0;i<=grandtotal;i++)
+{
+  var tot=0;
+  tot=tot+grantotal[i];
+  alert(tot);
+}
+}
+</script> -->
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height:900px;}
+
+  /* Set gray background color and 100% height*/
+  .sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+
+  /* On small screens, set height to 'auto' for the grid */
+  @media screen and (max-width: 767px) {
+    .row.content {height: auto;}
+  }
+</style>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="Dashboard.html">Dashboard</a></li>
+          <li><a href="generateBill.html">Generate Bill</a></li>
+          <li><a href="products.html">Products</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <center><img src="images/logo.jpg" width="100" height="100"></center>
+          <!--Show the image icon of invoice -->
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Dashboard.html">Dashboard</a></li>
+            <li class="active"><a href="#section2">Generate Bill</a></li>
+            <li><a href="products.html">Products</a></li>
+          </ul><br>
+</div>
+
+
+          <!--dashboard code-->
+
+          <div class="col-sm-9">
+            <div id="div1">
+              <table class="table table-bordered" id="myTable">
+                <thead>
+                  <tr>
+                    <th>SR NO.</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" onblur="checkTextField();"class="form-control" placeholder="Enter Srno" id="srno"></td>
+                    <td><input type="text" class="form-control" placeholder="Enter Product Name" id='pname'></td>
+                    <td><input type="text" class="form-control" placeholder="Enter Price" id="price"></td>
+                    <td><input type="text" class="form-control" placeholder="Enter Qty" id="qty"></td>
+                    <td id="sum"></td>
+                      <!--<td><input type="text" class="form-control" placeholder="Total Price" id="total"></td>
+              -->
+
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <div id="newdiv">
+              <div>
+
+              </div>
+            </div>
+
+            <div>
+              <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+        <input type="button" value="calculate" onclick="calcualate();">
+
+            </div>
+
+
+            </div>
+
+
+          </div>
+      </div>
+
+      <script type="text/javascript">
+        var dbName = 'Invoice';
+
+        function getDbSchema() {
+          var Products = {
+            name: 'Product',
+            columns: [{
+                name: 'srno',
+                primaryKey: true,
+                autoIncrement: false,
+              },
+              {
+                name: 'ItemName',
+                notNull: true,
+                dataType: JsStore.DATA_TYPE.String
+              },
+              {
+                name: 'Price',
+                notNull: true,
+                dataType: JsStore.DATA_TYPE.Number
+              },
+              {
+                name: 'Quantity',
+                notNull: true,
+                dataType: JsStore.DATA_TYPE.Number
+              }
+            ]
+          };
+          var db = {
+            name: dbName,
+            tables: [tblProduct]
+          }
+          return db;
+        }
+
+        var connection = new JsStore.Instance();
+
+        function initJsStore() {
+          connection.isDbExist(DbName).then(function(isExist) {
+            if (isExist) {
+              connection.openDb(DbName);
+            } else {
+              var database = getDbSchema();
+              connection.createDb(database);
+            }
+          }).catch(function(err) {
+            console.error(err);
+          })
+        }
+      </script>
+<form><input type="button" name="cal" onclick="sum();"></form>
+</body>
+
+</html>
