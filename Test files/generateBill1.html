@@ -25,14 +25,13 @@
     }
 
 
-
-
 function myCreateFunction(){
   var srno=document.getElementById("srno").value;
   var productName=document.getElementById('pname').value;
   var price=document.getElementById('price').value;
   var Quantity=document.getElementById('qty').value;
   var total=price*Quantity;
+  // var table = document.getElementById("table"), sumVal = 0;
 
 
   if(srno=="" && productName=="" && price=="" && Quantity=="")
@@ -41,8 +40,6 @@ function myCreateFunction(){
 
   }
     else {
-
-
     //var total=document.getElementById('total').value;
   //  var grandtotal= total*complete column
     var table = document.getElementById("myTable");
@@ -58,14 +55,27 @@ function myCreateFunction(){
     cell4.innerHTML = Quantity;
     cell5.innerHTML=total;
 
-}}
+    sum=0;
+    for (var i = 0; i < cell5.length; i++)
+          sum=sum+parseFloat(cell5[i].firstChild.data);
+alert("sum"+sum);
+// if(sum>0)
+// {
+//   alert("This " sum);
+// }
+//
+//
+//
+}
+
+}
 
 
 
 
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 function sum()
 {
@@ -77,7 +87,7 @@ for(var i=0;i<=grandtotal;i++)
   alert(tot);
 }
 }
-</script>
+</script> -->
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
   .row.content {height:900px;}
@@ -150,6 +160,7 @@ for(var i=0;i<=grandtotal;i++)
                     <td><input type="text" class="form-control" placeholder="Enter Product Name" id='pname'></td>
                     <td><input type="text" class="form-control" placeholder="Enter Price" id="price"></td>
                     <td><input type="text" class="form-control" placeholder="Enter Qty" id="qty"></td>
+                    <td id="sum"></td>
                       <!--<td><input type="text" class="form-control" placeholder="Total Price" id="total"></td>
               -->
 
@@ -167,7 +178,7 @@ for(var i=0;i<=grandtotal;i++)
 
             <div>
               <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
-
+        <input type="button" value="calculate" onclick="">
 
             </div>
 
