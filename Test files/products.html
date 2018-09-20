@@ -109,7 +109,7 @@ function myDeleteFunction() {
        <table class="table table-bordered" id="myTable">
          <thead>
            <tr>
-             <th>SR NO.</th>
+             <!--<th>SR NO.</th>-->
              <th>Product Name</th>
              <th>Price</th>
              <th>Quantity</th>
@@ -117,7 +117,7 @@ function myDeleteFunction() {
          </thead>
          <tbody>
            <tr>
-             <td><input type="text" class="form-control" placeholder="Enter Srno" id="ip1"></td>
+             <!--<td><input type="text" class="form-control" placeholder="Enter Srno" id="ip1"></td>-->
              <td><input type="text" class="form-control" placeholder="Enter Product Name"></td>
              <td><input type="text" class="form-control" placeholder="Enter Price"></td>
              <td><input type="text" class="form-control" placeholder="Enter Qty"></td>
@@ -176,11 +176,13 @@ var DbName="ProductDatabase";
    function addProduct() {
      var UserName = document.getElementById("user").value;
     var Password= document.getElementById("pass").value;
+    var price=document.getElementById('price').value;
 
     var products=getProducts();
         var Value = {
          Name: UserName,
-           Password: Password
+           Password: Password,
+           Price:Price
       };
 
        connection.insert({
@@ -215,18 +217,22 @@ var DbName="ProductDatabase";
           dataType: "string"
         },
        {
-          name: 'Password',
+          name: 'Price',
+          notNull: true,
+          dataType: "string"
+       },
+       {
+          name: 'Price',
           notNull: true,
           dataType: "string"
        }
-
        ]
        }
    var db = {
       name: "ProductDatabase",
       tables: [productTable]
    }
-   return db;
+   return db;//coce
    }
 
 
