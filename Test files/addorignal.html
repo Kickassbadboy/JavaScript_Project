@@ -69,19 +69,28 @@
   }
 
        function getDb(){
+//Variables
 
+//Product Name
+//Price
+//Quantity
         var productTable = {
          name: 'Product',
           columns: [
             {
-              name: 'Name',
+              name: 'Product_Name',
               notNull: true,
               dataType: "string"
             },
            {
-              name: 'Password',
+              name: 'Price',
               notNull: true,
               dataType: "string"
+           },
+           {
+             name:'Quantity',
+             notNull:true,
+             dataType:"number"
            }
 
            ]

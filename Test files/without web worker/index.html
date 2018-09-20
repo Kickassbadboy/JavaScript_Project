@@ -126,9 +126,9 @@
         function showTableData() {
             connection.select({
                 from: "Student"
-            }).then(function (students) {
+            }).then(function (sagar) {
                 var HtmlString = "";
-                students.forEach(function (student) {
+                sagar.forEach(function (student) {
                     HtmlString += "<tr ItemId=" + student.Id + "><td>" +
                         student.Name + "</td><td>" +
                         student.Gender + "</td><td>" +

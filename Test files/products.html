@@ -1,96 +1,293 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {height:900px;}
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title></title>
 
-  /* Set gray background color and 100% height*/
-  .sidenav {
-    background-color: #f1f1f1;
-    height: 100%;
-  }
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-  /* On small screens, set height to 'auto' for the grid */
-  @media screen and (max-width: 767px) {
-    .row.content {height: auto;}
-  }
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+ <body>
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ <title>Creating Product Bill</title>
+ <!--write js here-->
+ <script>
+   function inputPrice()
+{
+var newobj = document.createElement('div');
+newobj.innerHTML=document.getElementById('div1').innerHTML;
+document.getElementById('newdiv').appendChild(newobj);
+}
+</script>
+<script>
+function myCreateFunction() {
+   var srno=document.getElementById("ip1").value;
+   var table = document.getElementById("myTable");
+   var row = table.insertRow(1);
+   var cell1 = row.insertCell(0);
+   var cell2 = row.insertCell(1);
+   var cell3=row.insertCell(2);
+   var cell4=row.insertCell(3);
+   cell1.innerHTML = srno;
+   cell2.innerHTML = "NEW CELL2";
+   cell3.innerHTML = "NEW CELL2";
+   cell4.innerHTML = "NEW CELL2";
+}
+
+function myDeleteFunction() {
+   document.getElementById("myTable").deleteRow(0);
+}
+</script>
+ <style>
+   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+ .row.content {height:900px;}
+
+ /* Set gray background color and 100% height*/
+ .sidenav {
+   background-color: #f1f1f1;
+   height: 100%;
+ }
+
+ /* On small screens, set height to 'auto' for the grid */
+ @media screen and (max-width: 767px) {
+   .row.content {height: auto;}
+ }
 </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse visible-xs">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Logo</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Hello</a></li>
-            <li ><a href="Dashboard.html">Dashboard</a></li>
-            <li><a href="generateBill.html">Generate Bill</a></li>
-            <li class="active"><a href="product.html">Product</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+ <nav class="navbar navbar-inverse visible-xs">
+     <div class="container-fluid">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">Logo</a>
+       </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+         <ul class="nav navbar-nav">
+           <li class="active"><a href="#">Hello</a></li>
+           <li ><a href="Dashboard.html">Dashboard</a></li>
+           <li><a href="generateBill.html">Generate Bill</a></li>
+           <li class="active"><a href="product.html">Product</a></li>
+         </ul>
+       </div>
+     </div>
+   </nav>
 
 <div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <center><img src="images/logo.jpg" width="100" height="100"></center><!--Show the image icon of invoice -->
-      <ul class="nav nav-pills nav-stacked">
-        <li ><a href="Dashboard.html">Dashboard</a></li>
-        <li><a href="generateBill.html">Generate Bill</a></li>
-        <li class="active"><a href="products.html">Products</a></li>
+ <div class="row content">
+   <div class="col-sm-3 sidenav hidden-xs">
+     <center><img src="images/logo.jpg" width="100" height="100"></center><!--Show the image icon of invoice -->
+     <ul class="nav nav-pills nav-stacked">
+       <li ><a href="Dashboard.html">Dashboard</a></li>
+       <li><a href="generateBill.html">Generate Bill</a></li>
+       <li class="active"><a href="product.html">Product</a></li>
 
-      </ul><br>
-    </div>
-
-  </div>
-</div>
+     </ul><br>
+   </div>
 
 
-    <nav class="navbar navbar-inverse visible-xs">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Logo</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Hello</a></li>
-              <li ><a href="Dashboard.html">Dashboard</a></li>
-              <li><a href="generateBill.html">Generate Bill</a></li>
-              <li class="active"><a href="product.html">Product</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
-        </div>
 
 
-      </div>
+     <div class="col-sm-9">
+       <div id="div1">
+       <table class="table table-bordered" id="myTable">
+         <thead>
+           <tr>
+             <!--<th>SR NO.</th>-->
+             <th>Product Name</th>
+             <th>Price</th>
+             <th>Quantity</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <!--<td><input type="text" class="form-control" placeholder="Enter Srno" id="ip1"></td>-->
+             <td><input type="text" class="form-control" placeholder="Enter Product Name"></td>
+             <td><input type="text" class="form-control" placeholder="Enter Price"></td>
+             <td><input type="text" class="form-control" placeholder="Enter Qty"></td>
+           </tr>
 
-    </div>
-  </div>
+         </tbody>
+       </table>
+     </div>
+       <div id="newdiv">
+         <div>
+
+         </div>
+       </div>
+
+       <div>
+         <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+       </div>
+
+
+     </div>
+
+   </div>
+ </div>
+
+<script>
+var connection = new JsStore.Instance(),ProductId;
+window.onload = function () {
+
+initiateDatabase();
+
+}
+
+function initiateDatabase(){
+
+var DbName="ProductDatabase";
+ connection.isDbExist(DbName).then(function(isExist) {
+      if (isExist) { // checks if the database exists, if it does then opens it, else creates a whole new dataBase
+          connection.openDb(DbName).then(function (){
+            console.log('db Opened');
+          });
+      } else {
+          var database = getDb();
+          connection.createDb(database).then(function (tables){
+            console.log(tables);
+          });
+          addProduct();
+      }
+  }).catch(function(err) {
+      console.error(err);
+      alert(err.message);
+  });
+
+   }
+
+
+   function addProduct() {
+     var UserName = document.getElementById("user").value;
+    var Password= document.getElementById("pass").value;
+    var price=document.getElementById('price').value;
+
+    var products=getProducts();
+        var Value = {
+         Name: UserName,
+           Password: Password,
+           Price:Price
+      };
+
+       connection.insert({
+           into: 'Product',   //table name
+           values: [Value]      //coloum
+       }).then(function (rowsAdded) {
+         if(rowsAdded > 0){
+             alert("Successfully Added");
+         }
+
+       }).catch(function (err) {
+           console.log(err);
+           alert(err.message);
+       });
+
+   }
+
+
+   function getDb(){
+
+    var productTable = {
+     name: 'Product',
+      columns: [
+        {
+          name:'Id',
+          primaryKey:true,
+          autoIncrement:true
+        },
+        {
+          name: 'Name',
+          notNull: true,
+          dataType: "string"
+        },
+       {
+          name: 'Price',
+          notNull: true,
+          dataType: "string"
+       },
+       {
+          name: 'Price',
+          notNull: true,
+          dataType: "string"
+       }
+       ]
+       }
+   var db = {
+      name: "ProductDatabase",
+      tables: [productTable]
+   }
+   return db;//coce
+   }
+
+
+
+
+   function getProducts() {
+       //Student Array
+       var Value = [{
+               Name: 'Alfreds',
+               Password: 'male',
+
+           },
+           {
+           Name: 'Alfreds',
+           Password: 'male',
+
+           },
+         ]
+           return Value;
+ }
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
-  </html>
+ </html>
