@@ -32,23 +32,35 @@ document.getElementById('newdiv').appendChild(newobj);
 }
 </script>
 <script>
+
 function myCreateFunction() {
-   var srno=document.getElementById("ip1").value;
+
+  // Deleted srno obj, variable and cell
+  var edit=document.createElement(<a href="#"><span class="glyphicon glyphicon-trash"></a></span></center>);
    var table = document.getElementById("myTable");
    var row = table.insertRow(1);
-   var cell1 = row.insertCell(0);
-   var cell2 = row.insertCell(1);
-   var cell3=row.insertCell(2);
-   var cell4=row.insertCell(3);
-   cell1.innerHTML = srno;
+   var cell2 = row.insertCell(0);
+   var cell3=row.insertCell(1);
+   var cell4=row.insertCell(2);
+   var cell5=row.insertCell(3);
+   var cell6=row.insertCell(4);
    cell2.innerHTML = "NEW CELL2";
    cell3.innerHTML = "NEW CELL2";
    cell4.innerHTML = "NEW CELL2";
+   cell5.appendChild(edit);
+  // cell6.innerHTML=edit;
+// <div>
+//    <table>
+//    <tr>
+//       <td><center><a href="#"><span class="glyphicon glyphicon-pencil"></a></span></center></td>
+//       <td><center><a href="#"><span class="glyphicon glyphicon-trash"></a></span></center></td>
+//     </tr>
+//     </table>
+//   </div>
+
 }
 
-function myDeleteFunction() {
-   document.getElementById("myTable").deleteRow(0);
-}
+
 </script>
  <style>
    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -109,18 +121,22 @@ function myDeleteFunction() {
        <table class="table table-bordered" id="myTable">
          <thead>
            <tr>
-             <th>SR NO.</th>
              <th>Product Name</th>
              <th>Price</th>
              <th>Quantity</th>
+             <th>Edit</th>
+             <th>Delete</th>
            </tr>
          </thead>
          <tbody>
            <tr>
-             <td><input type="text" class="form-control" placeholder="Enter Srno" id="ip1"></td>
              <td><input type="text" class="form-control" placeholder="Enter Product Name"></td>
              <td><input type="text" class="form-control" placeholder="Enter Price"></td>
              <td><input type="text" class="form-control" placeholder="Enter Qty"></td>
+
+             <td id='gly1'><center><a href="#"><span class="glyphicon glyphicon-pencil"></a></span></center></td>
+             <td id='gly2'><center><a href="#"><span class="glyphicon glyphicon-trash"></a></span></center></td>
+
            </tr>
 
          </tbody>
