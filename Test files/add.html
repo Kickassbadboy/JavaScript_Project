@@ -124,7 +124,7 @@
 
 
     function getProducts() {
-        //Student Array
+        //product Array
         var Value = [{
                 Name: 'Alfreds',
                 Password: 'male',
@@ -139,6 +139,25 @@
             return Value;
   }
 
+  function showTableData() {
+      connection.select({
+          from: "Product"
+      }).then(function (products) {
+          var HtmlString = "";
+          products.forEach(function (product) {
+              HtmlString += "<tr ItemId=" + product.Id + "><td>" +
+                  product.Name + "</td><td>" +
+                  product.Password+ "</td><td>" +
+                  "<a href='#' class='edit'>Edit</a></td>" +
+                  "<td><a href='#' class='delete''>Delete</a></td>";
+          })
+          $('#tblGrid tbody').html(HtmlString);
+      }).catch(function (error) {
+          console.log(error);
+      });
+  }
+
+
     </script>
 
   </head>
@@ -150,6 +169,7 @@
     <input type="button" name="Submit" value="Submit" onclick="addProduct();"><br><br><br>
     <input type="text"  id="ProductId">
     <input type="button" name="update" value="update" onclick="updateProduct();">
+    <input type="button" name="show" value="Show" onclick="showTableData();">
   </center>
 
 
