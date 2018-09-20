@@ -52,28 +52,7 @@ function myCreateFunction(){
     cell3.innerHTML = price;
     cell4.innerHTML = Quantity;
     cell5.innerHTML=total;
-<<<<<<< HEAD
-    cell5.setAttribute("id","cellTotal");
-=======
-    //cell5.setAttribute("id","cellTotal");
 
-
-
-
->>>>>>> 7837211efc134a03b4afa18a5e4a14a7c7381e1e
-//     sum=0;
-//     for (var i = 0; i < cell5.length; i++)
-//           sum=sum+parseFloat(cell5[i].firstChild.value);
-// alert("sum"+sum);
-
-}
-
-<<<<<<< HEAD
-
-
-}
-=======
->>>>>>> 7837211efc134a03b4afa18a5e4a14a7c7381e1e
 
 }
 function calcualate(){
@@ -87,7 +66,7 @@ var table = document.getElementById("MyTable"), sumVal = 0;
            document.getElementById("sum").innerHTML = "Sum Value = " + sumVal;
            console.log(sumVal);
            }
-
+}
 </script>
 
 <!-- <script type="text/javascript">
@@ -210,11 +189,7 @@ for(var i=0;i<=grandtotal;i++)
         function getDbSchema() {
           var Products = {
             name: 'Product',
-            columns: [{
-                name: 'srno',
-                primaryKey: true,
-                autoIncrement: false,
-              },
+            columns: [
               {
                 name: 'ItemName',
                 notNull: true,
