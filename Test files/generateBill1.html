@@ -31,7 +31,6 @@ function myCreateFunction(){
   var price=document.getElementById('price').value;
   var Quantity=document.getElementById('qty').value;
   var total=price*Quantity;
-  // var table = document.getElementById("table"), sumVal = 0;
 
 
   if(srno=="" && productName=="" && price=="" && Quantity=="")
@@ -40,8 +39,7 @@ function myCreateFunction(){
 
   }
     else {
-    //var total=document.getElementById('total').value;
-  //  var grandtotal= total*complete column
+
     var table = document.getElementById("myTable");
    var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
@@ -54,18 +52,12 @@ function myCreateFunction(){
     cell3.innerHTML = price;
     cell4.innerHTML = Quantity;
     cell5.innerHTML=total;
+    cell5.setAttribute("id","cellTotal");
+//     sum=0;
+//     for (var i = 0; i < cell5.length; i++)
+//           sum=sum+parseFloat(cell5[i].firstChild.value);
+// alert("sum"+sum);
 
-    sum=0;
-    for (var i = 0; i < cell5.length; i++)
-          sum=sum+parseFloat(cell5[i].firstChild.data);
-alert("sum"+sum);
-// if(sum>0)
-// {
-//   alert("This " sum);
-// }
-//
-//
-//
 }
 
 }
