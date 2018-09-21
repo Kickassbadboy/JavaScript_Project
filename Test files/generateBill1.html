@@ -151,6 +151,7 @@ for(var i=0;i<=grandtotal;i++)
 </div>
 
 
+
           <!--dashboard code-->
 
           <div class="col-sm-9">
@@ -247,6 +248,26 @@ for(var i=0;i<=grandtotal;i++)
             console.error(err);
           })
         }
+
+        function showTableData() {
+            connection.select({
+                from: "Product"
+            }).then(function (products) {
+                 var HtmlString = "";
+                products.forEach(function (product) {
+
+                    HtmlString += "<tr ItemId=" + product.Product_Name + "><td>" +
+                        product.Product_Price + "</td><td>" +
+                        product.Product_Qty+ "</td><td>" ;
+
+                })
+
+                $('#tblGrid tbody').html(HtmlString);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+
       </script>
 <form><input type="button" name="cal" onclick="sum();"></form>
 </body>
