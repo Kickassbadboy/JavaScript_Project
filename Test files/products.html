@@ -137,7 +137,11 @@ function myDeleteFunction() {
 
        <div>
          <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+<<<<<<< HEAD
       <!--  <input type="button" name="button1" value="Show" onclick="show();">  -->
+=======
+         <input type="button" name="button1" value="Add more" onclick="show();">
+>>>>>>> c346889f8b2b7c11b727e4bf9aaf31f5d439d7d8
 
        </div>
 
@@ -286,6 +290,7 @@ function myDeleteFunction() {
      connection.select({
          from: "Product"
      }).then(function (products) {
+<<<<<<< HEAD
          // var HtmlString = "";
          products.forEach(function (product) {
            cell2=products.Product_Name;
@@ -295,6 +300,14 @@ function myDeleteFunction() {
          //         "<a href='#' class='edit'>Edit</a></td>" +
          //         "<td><a href='#' class='delete''>Delete</a></td>";
          // })
+=======
+         // var HtmlString = ""
+         products.forEach(function (product) {
+           cell2=products.Product_Name;
+            HtmlString += "<tr ItemId=" + product.Id + "><td>" +
+              product.Product_Price + "</td><td>" +
+            product.Product_Qty+ "</td><td>";
+>>>>>>> c346889f8b2b7c11b727e4bf9aaf31f5d439d7d8
        })
          $('#tblGrid tbody').html(HtmlString);
      }).catch(function (error) {

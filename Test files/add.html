@@ -45,8 +45,9 @@
 
         var products=getProducts();
             var Value = {
-             Name: UserName,
-               Password: Password
+              Product_Name: nameupdate,
+                Product_Price: Passupdate,
+                Product_Qty:productQty
           };
 
            connection.insert({
@@ -68,8 +69,9 @@
          var nameupdate=document.getElementById('user').value;
          var Passupdate=document.getElementById('pass').value;
          var Value = {
-           Name: nameupdate,
-             Password: Passupdate
+           Product_Name: nameupdate,
+             Product_Price: Passupdate,
+             Product_Qty:productQty
 
          };
          connection.update({ in: 'Product',
@@ -88,9 +90,6 @@
          })
        }
 
-  function inputfunction(){
-
-  }
 
        function getDb(){
 
@@ -103,16 +102,20 @@
               autoIncrement:true
             },
             {
-              name: 'Name',
+              name: 'Product_Name',
               notNull: true,
               dataType: "string"
             },
            {
-              name: 'Password',
+              name: 'Product_Price',
               notNull: true,
-              dataType: "string"
+              dataType: "number"
+           },
+           {
+              name: 'Product_Qty',
+              notNull: true,
+              dataType: "number"
            }
-
            ]
            }
       var db = {
