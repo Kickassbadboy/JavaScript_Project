@@ -5,6 +5,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <title></title>
+   <style>
+   html *
+   {
+      font-size: 15px !important;
+      font-family: Arial !important;
+   }
+   </style>
+
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
@@ -37,28 +45,41 @@ function myCreateFunction() {
 
   // Deleted srno obj, variable and cell
   //var edit=document.createElement(<a href="#"><span class="glyphicon glyphicon-trash"></a></span></center>);
-   var table = document.getElementById("myTable");
+  var productName=document.getElementById('pname').value;
+  var price=document.getElementById('price').value;
+  var Quantity=document.getElementById('qty').value;
+  var total=price*Quantity;
+
+
+  if(srno=="" && productName=="" && price=="" && Quantity=="")
+  {
+    alert("Please enter values");
+
+  }
+    else {
+
+    var table = document.getElementById("myTable");
    var row = table.insertRow(1);
-   var cell2 = row.insertCell(0);
-   var cell3=row.insertCell(1);
-   var cell4=row.insertCell(2);
-   var cell5=row.insertCell(3);
-   var cell6=row.insertCell(4);
-   // var cell7=row.insertCell(5);
-   // var cell8=row.insertCell(6);
-   cell2.innerHTML = "NEW CELL2";
-   cell3.innerHTML = "NEW CELL2";
-   cell4.innerHTML = "NEW CELL2";
+    // var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(0);
+    var cell3=row.insertCell(1);
+    var cell4=row.insertCell(2);
+    var cell5=row.insertCell(3);
+    cell2.innerHTML = productName;
+    cell3.innerHTML = price;
+    cell4.innerHTML = Quantity;
 
 
+  cell5.innerHTML="edit";
+  //cell5.setAttribute("onclick","deleteRow(this)");
+  cell5.setAttribute("class","glyphicon glyphicon-pencil");
 
-   cell5.setAttribute("a href","edit.html");
-   cell5.setAttribute("class","glyphicon glyphicon-pencil");
+  cell6.innerHTML="delete";
+  cell6.setAttribute("onclick","deleteRow(this)");
+  cell6.setAttribute("class","glyphicon glyphicon-trash");
 
-   cell6.setAttribute("a href","delete.html");
-   cell6.setAttribute("class","glyphicon glyphicon-trash");
+}
 
-  cell6.setAttribute("onclick","Delete(this)");
 
 
    //cell5.setAttribute("span","ce")
@@ -74,11 +95,25 @@ function myCreateFunction() {
 
 }
 
-function deleteRow(r) {
-    var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("myTable").deleteRow(i);
+function deleteData()
+{
+  var index,table=document.getElementById("myTable");
+  for(var i=0;i<table.rows.length;i++)
+  {
+    table.row[i].cells[4].onclick=function()
+    {
+      index=this.parentElement.rowIndex;
+      table.deleteRow(index);
+      console.log(index);
+    };
+  }
 }
 
+
+// function deleteRow(r) {
+//     var i = r.parentNode.parentNode.rowIndex;
+//     document.getElementById("myTable").deleteRow(i);
+// }
 
 </script>
  <style>
@@ -211,13 +246,12 @@ function deleteRow(r) {
       var Product_Name = document.getElementById("Product_Name").value;
      var Product_Price= document.getElementById("Product_Price").value;
      var Product_Qty=document.getElementById('Product_Qty').value;
-     var
 
      var products=getProducts();
          var Value = {
-           Product_Name: Product_Name,
-             Product_Price: Product_Price,
-             Product_Qty:Product_Qty
+           Product_Name: nameupdate,
+             Product_Price: Passupdate,
+             Product_Qty:productQty
        };
 
         connection.insert({
