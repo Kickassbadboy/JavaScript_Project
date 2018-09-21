@@ -137,7 +137,7 @@ function myDeleteFunction() {
 
        <div>
          <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
-
+        <!-- > <input type="button" name="button1" value="Add more" onclick="show();"> -->
 
        </div>
 
@@ -282,33 +282,22 @@ function myDeleteFunction() {
         ]
           return Value;
  }
- // function showTableData() {
- //     connection.select({
- //         from: "Product"
- //     }).then(function (products) {
- //         // var HtmlString = "";
- //         products.forEach(function (product) {
- //           cell2=products.Product_Name;
- //         //     HtmlString += "<tr ItemId=" + product.Id + "><td>" +
- //         //         product.Name + "</td><td>" +
- //         //         product.Password+ "</td><td>" +
- //         //         "<a href='#' class='edit'>Edit</a></td>" +
- //         //         "<td><a href='#' class='delete''>Delete</a></td>";
- //         // })
- //
- //         // var HtmlString = ""
- //         products.forEach(function (product) {
- //           cell2=products.Product_Name;
- //            HtmlString += "<tr ItemId=" + product.Id + "><td>" +
- //              product.Product_Price + "</td><td>" +
- //            product.Product_Qty+ "</td><td>";
- //
- //       })
- //         $('#tblGrid tbody').html(HtmlString);
- //     }).catch(function (error) {
- //         console.log(error);
- //     });
-
+ function showTableData() {
+     connection.select({
+         from: "Product"
+     }).then(function (products) {
+         // var HtmlString = ""
+         products.forEach(function (product) {
+           cell2=products.Product_Name;
+            HtmlString += "<tr ItemId=" + product.Id + "><td>" +
+              product.Product_Price + "</td><td>" +
+            product.Product_Qty+ "</td><td>";
+       })
+         $('#tblGrid tbody').html(HtmlString);
+     }).catch(function (error) {
+         console.log(error);
+     });
+ }
 
 
   </script>
