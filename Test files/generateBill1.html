@@ -52,35 +52,38 @@ function myCreateFunction(){
     cell3.innerHTML = price;
     cell4.innerHTML = Quantity;
     cell5.innerHTML=total;
-    cell5.setAttribute("class", "countable");
-//     sum=0;
-//     for (var i = 0; i < cell5.length; i++)
-//           sum=sum+parseFloat(cell5[i].firstChild.value);
-// alert("sum"+sum);
-calcualate();
+    cell5.setAttribute("class","countable");
+calculate();
 
 }
+
 }
 
 
 
 
+function calculate(){
+// var table = document.getElementById("MyTable"), sumVal = 0;
+//
+//            for(var i = 1; i < table.rows.length; i++)
+//            {
+//                sumVal = sumVal + parseInt(table.rows[i].cells[4].innerHTML);
+//            }
+//
+//            document.getElementById("sum").innerHTML = "Sum Value = " + sumVal;
+//            console.log(sumVal);
+
+var sum = 0;
+var table = document.getElementById("myTable");
+var tds = table.getElementsByClassName("countable");
+for(var i=0;i<tds.length;i++){
+ sum += isNaN(tds[i].innerText) ? 0 : parseInt(tds[i].innerText);
+  //console.log(sum);
+  document.getElementById("sum").innerHTML = "Total = "+sum;
 
 
-function calcualate(){
-  var sum = 0;
-  var table = document.getElementById("myTable");
-  var tds = table.getElementsByClassName("countable");
-  for(var i=0;i<tds.length;i++){
-   sum += isNaN(tds[i].innerText) ? 0 : parseInt(tds[i].innerText);
-    //console.log(sum);
-    document.getElementById("sum").innerHTML = "Total =  "+sum;
-
-
-  }
-           }
-
-
+}
+}
 </script>
 
 <!-- <script type="text/javascript">
@@ -168,7 +171,7 @@ for(var i=0;i<=grandtotal;i++)
                     <td><input type="text" class="form-control" placeholder="Enter Product Name" id='pname'></td>
                     <td><input type="text" class="form-control" placeholder="Enter Price" id="price"></td>
                     <td><input type="text" class="form-control" placeholder="Enter Qty" id="qty"></td>
-                    <td id="sum">Total</td>
+                    <td id="sum">Total  :</td>
                       <!--<td><input type="text" class="form-control" placeholder="Total Price" id="total"></td>
               -->
 
@@ -185,7 +188,9 @@ for(var i=0;i<=grandtotal;i++)
             </div>
 
             <div>
-              <input type="button" name="button1" value="Add more" onclick="myCreateFunction();">
+          <input type="button" class="btn-success" name="button1" value="Add more" onclick="myCreateFunction();"><br><br><br><br><br><br>
+
+
 
 
             </div>
@@ -203,11 +208,7 @@ for(var i=0;i<=grandtotal;i++)
         function getDbSchema() {
           var Products = {
             name: 'Product',
-            columns: [{
-                name: 'srno',
-                primaryKey: true,
-                autoIncrement: false,
-              },
+            columns: [
               {
                 name: 'ItemName',
                 notNull: true,
