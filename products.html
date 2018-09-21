@@ -5,6 +5,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <title></title>
+   <style>
+   html *
+   {
+      font-size: 15px !important;
+      font-family: Arial !important;
+   }
+   </style>
+
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
@@ -37,24 +45,40 @@ function myCreateFunction() {
 
   // Deleted srno obj, variable and cell
   //var edit=document.createElement(<a href="#"><span class="glyphicon glyphicon-trash"></a></span></center>);
-   var table = document.getElementById("myTable");
+  var productName=document.getElementById('pname').value;
+  var price=document.getElementById('price').value;
+  var Quantity=document.getElementById('qty').value;
+  var total=price*Quantity;
+
+
+  if(srno=="" && productName=="" && price=="" && Quantity=="")
+  {
+    alert("Please enter values");
+
+  }
+    else {
+
+    var table = document.getElementById("myTable");
    var row = table.insertRow(1);
-   var cell2 = row.insertCell(0);
-   var cell3=row.insertCell(1);
-   var cell4=row.insertCell(2);
-   var cell5=row.insertCell(3);
-   var cell6=row.insertCell(4);
-   cell2.innerHTML = "NEW CELL2";
-   cell3.innerHTML = "NEW CELL2";
-   cell4.innerHTML = "NEW CELL2";
+    // var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(0);
+    var cell3=row.insertCell(1);
+    var cell4=row.insertCell(2);
+    var cell5=row.insertCell(3);
+    cell2.innerHTML = productName;
+    cell3.innerHTML = price;
+    cell4.innerHTML = Quantity;
 
 
+  cell5.innerHTML="edit";
+  //cell5.setAttribute("onclick","deleteRow(this)");
+  cell5.setAttribute("class","glyphicon glyphicon-pencil");
 
-   cell5.setAttribute("a href","edit.html");
-   cell5.setAttribute("class","glyphicon glyphicon-pencil");
+  cell6.innerHTML="delete";
+  cell6.setAttribute("onclick","deleteRow(this)");
+  cell6.setAttribute("class","glyphicon glyphicon-trash");
 
-   cell6.setAttribute("a href","delete.html");
-   cell6.setAttribute("class","glyphicon glyphicon-trash");
+}
 
 
 
@@ -71,6 +95,25 @@ function myCreateFunction() {
 
 }
 
+function deleteData()
+{
+  var index,table=document.getElementById("myTable");
+  for(var i=0;i<table.rows.length;i++)
+  {
+    table.row[i].cells[4].onclick=function()
+    {
+      index=this.parentElement.rowIndex;
+      table.deleteRow(index);
+      console.log(index);
+    };
+  }
+}
+
+
+// function deleteRow(r) {
+//     var i = r.parentNode.parentNode.rowIndex;
+//     document.getElementById("myTable").deleteRow(i);
+// }
 
 </script>
  <style>
@@ -168,6 +211,141 @@ function myCreateFunction() {
 
    </div>
  </div>
+ <script type="text/javascript">
+ var connection = new JsStore.Instance(),ProductId;
+ window.onload = function () {
+
+ initiateDatabase();
+
+ }
+
+ function initiateDatabase(){
+
+ var DbName="ProductDatabase";
+  connection.isDbExist(DbName).then(function(isExist) {
+       if (isExist) { // checks if the database exists, if it does then opens it, else creates a whole new dataBase
+           connection.openDb(DbName).then(function (){
+             console.log('db Opened');
+           });
+       } else {
+           var database = getDb();
+           connection.createDb(database).then(function (tables){
+             console.log(tables);
+           });
+           addProduct();
+       }
+   }).catch(function(err) {
+       console.error(err);
+       alert(err.message);
+   });
+
+    }
+
+
+    function addProduct() {
+      var Product_Name = document.getElementById("Product_Name").value;
+     var Product_Price= document.getElementById("Product_Price").value;
+     var Product_Qty=document.getElementById('Product_Qty').value;
+
+     var products=getProducts();
+         var Value = {
+           Product_Name: nameupdate,
+             Product_Price: Passupdate,
+             Product_Qty:productQty
+       };
+
+        connection.insert({
+            into: 'Product',   //table name
+            values: [Value]      //coloum
+        }).then(function (rowsAdded) {
+          if(rowsAdded > 0){
+              alert("Successfully Added");
+          }
+
+        }).catch(function (err) {
+            console.log(err);
+            alert(err.message);
+        });
+
+    }
+    function updateProduct(){
+      var ProductId=document.getElementById('ProductId').value;
+      var nameupdate=document.getElementById('user').value;
+      var Passupdate=document.getElementById('pass').value;
+      var Value = {
+        Product_Name: nameupdate,
+          Product_Price: Passupdate,
+          Product_Qty:productQty
+
+      };
+      connection.update({ in: 'Product',
+          set: Value,
+          where: {
+              Id: Number(ProductId)
+          }
+      }).then(function (rowsAffected) {
+          alert(rowsAffected + " record Updated");
+          if (rowsAffected > 0) {
+              console.log("rows affected");
+          }
+      }).catch(function (err) {
+          console.log(err);
+          alert(err.message);
+      })
+    }
+
+
+    function getDb(){
+
+     var productTable = {
+      name: 'Product',
+       columns: [
+         {
+           name:'Id',
+           primaryKey:true,
+           autoIncrement:true
+         },
+         {
+           name: 'Product_Name',
+           notNull: true,
+           dataType: "string"
+         },
+        {
+           name: 'Product_Price',
+           notNull: true,
+           dataType: "number"
+        },
+        {
+           name: 'Product_Qty',
+           notNull: true,
+           dataType: "number"
+        }
+        ]
+        }
+   var db = {
+       name: "ProductDatabase",
+       tables: [productTable]
+   }
+   return db;
+ }
+
+
+ function getProducts() {
+     //product Array
+     var Value = [{
+             Name: 'Alfreds',
+             Password: 'male',
+
+         },
+         {
+         Name: 'Alfreds',
+         Password: 'male',
+
+         },
+       ]
+         return Value;
+}
+ </script>
 
 </body>
  </html>
