@@ -286,15 +286,12 @@ function myDeleteFunction() {
      connection.select({
          from: "Product"
      }).then(function (products) {
-         // var HtmlString = "";
+         // var HtmlString = ""
          products.forEach(function (product) {
            cell2=products.Product_Name;
-         //     HtmlString += "<tr ItemId=" + product.Id + "><td>" +
-         //         product.Name + "</td><td>" +
-         //         product.Password+ "</td><td>" +
-         //         "<a href='#' class='edit'>Edit</a></td>" +
-         //         "<td><a href='#' class='delete''>Delete</a></td>";
-         // })
+            HtmlString += "<tr ItemId=" + product.Id + "><td>" +
+              product.Product_Price + "</td><td>" +
+            product.Product_Qty+ "</td><td>";
        })
          $('#tblGrid tbody').html(HtmlString);
      }).catch(function (error) {
