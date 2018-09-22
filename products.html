@@ -37,6 +37,13 @@ function myCreateFunction() {
    var price=document.getElementById("price").value;
    var qty=document.getElementById("qty").value;
    var table = document.getElementById("myTable");
+   if(pname=="" && price=="" && qty=="")
+   {
+     alert("Please enter values");
+
+   }else {
+
+
    var row = table.insertRow(1);
   // var cell1 = row.insertCell(0);
    var cell2 = row.insertCell(0);
@@ -47,8 +54,22 @@ function myCreateFunction() {
    cell3.innerHTML = price;
    cell4.innerHTML = qty;
    addProduct();
+
+   clear();
+ }
 }
 
+
+
+function clear(){
+  var pname=document.getElementById("pname").value;
+  var price=document.getElementById("price").value;
+  var qty=document.getElementById("qty").value;
+
+  pname="";
+  price="";
+  qty="";
+}
 function myDeleteFunction() {
    document.getElementById("myTable").deleteRow(0);
 }
@@ -168,7 +189,7 @@ function myDeleteFunction() {
             connection.createDb(database).then(function (tables){
               console.log(tables);
             });
-            addProduct();
+
         }
     }).catch(function(err) {
         console.error(err);
