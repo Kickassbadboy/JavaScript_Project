@@ -43,8 +43,16 @@ function myCreateFunction(){
     alert("Please enter values");
 
   }
-    else if (productValid==false) {
+    else if (productValid==true) {
       alert("Enter Product Name(characters)");
+    }
+    else if (numberegex.test(price)==true) {
+      alert("Please enter valid price");
+
+    }
+    else if (numberegex.test(Quantity)==true) {
+      alert("Please enter valid Quantity");
+
     }
     else {
 

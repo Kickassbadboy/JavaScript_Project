@@ -39,11 +39,27 @@ function myCreateFunction() {
    var price=document.getElementById("price").value;
    var qty=document.getElementById("qty").value;
    var table = document.getElementById("myTable");
+   var nameregex=/[0-9]/g;
+   var numberegex=/^[0-9]g/;
+   var productValid=nameregex.test(pname);
+
    if(pname=="" && price=="" && qty=="")
    {
      alert("Please enter values");
 
-   }else {
+   }
+     else if (productValid==true) {
+       alert("Enter Product Name(characters)");
+     }
+     else if (numberegex.test(price)==true) {
+       alert("Please enter valid price");
+
+     }
+     else if (numberegex.test(qty)==true) {
+       alert("Please enter valid Quantity");
+
+     }
+     else {
 
 
    var row = table.insertRow(1);
