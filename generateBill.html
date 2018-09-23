@@ -34,8 +34,8 @@ function myCreateFunction(){
   var price=document.getElementById('price').value;
   var Quantity=document.getElementById('qty').value;
   var total=price*Quantity;
-  var nameregex="/[0-9]/g";
-  var numberegex="/^[0-9]g/";
+  var nameregex=/[0-9]/g;
+  var numberegex=/^[0-9]g/;
   var productValid=nameregex.test(productName);
 
   if(productName=="" && price=="" && Quantity=="")
