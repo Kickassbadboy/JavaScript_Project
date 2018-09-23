@@ -73,21 +73,13 @@ function myCreateFunction() {
    cell4.innerHTML = qty;
    addProduct();
 
-   clear();
+   row.reset();
  }
 }
 
 
 
-function clear(){
-  var pname=document.getElementById("pname").value;
-  var price=document.getElementById("price").value;
-  var qty=document.getElementById("qty").value;
 
-  pname="";
-  price="";
-  qty="";
-}
 function myDeleteFunction() {
    document.getElementById("myTable").deleteRow(0);
 }

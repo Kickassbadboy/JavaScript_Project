@@ -3,11 +3,16 @@
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!--- Include the above in your HEAD tag ---------->
+
+
+<meta name="google-signin-client_id" content="92454176895-b7mkv6sr1aqgs0iobrofmceb42lk41qe.apps.googleusercontent.com">
+
 <script type="text/javascript">
 
   function validate()
@@ -41,6 +46,7 @@
         <br>
         <div class="col-sm-4">
 			  <button class="btn btn-success" style="width:100%" name="Submit" value="Login" onclick="validate()" type="button">Login</button>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </div>
       </center>
     </form>
